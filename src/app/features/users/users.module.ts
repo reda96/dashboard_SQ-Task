@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { UsersRoutingModule } from './UsersRoutingModule';
+import { UsersRoutingModule } from './usersRoutingModule';
 
 
 

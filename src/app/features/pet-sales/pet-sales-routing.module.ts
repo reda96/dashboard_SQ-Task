@@ -6,12 +6,14 @@ import { WeeklyPetSalesComponent } from "./weekly-pet-sales/weekly-pet-sales.com
 import { DailyPetSalesComponent } from "./daily-pet-sales/daily-pet-sales.component";
 
  const routes: Routes = [
+     { path: '', component: WeeklyPetSalesComponent,  canActivate:[authGuard] }, 
+
      { path: 'weekly-sales', component: WeeklyPetSalesComponent , canActivate:[authGuard]}, 
      { path: 'daily-sales', component: DailyPetSalesComponent,  canActivate:[authGuard] }, 
   
    ];
    @NgModule({
-     imports: [RouterModule.forRoot(routes)],
+     imports: [RouterModule.forChild(routes)],
      exports: [RouterModule]
    })
    export class PetSalesStatisticsRoutingModule { }

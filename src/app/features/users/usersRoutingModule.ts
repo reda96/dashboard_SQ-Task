@@ -12,7 +12,7 @@ import { AddEditUserComponent } from "./add-edit-user/add-edit-user.component";
   
    ];
    @NgModule({
-     imports: [RouterModule.forRoot(routes)],
+     imports: [RouterModule.forChild(routes)],
      exports: [RouterModule]
    })
    export class UsersRoutingModule { }
