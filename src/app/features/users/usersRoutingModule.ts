@@ -15,4 +15,4 @@ import { AddEditUserComponent } from "./add-edit-user/add-edit-user.component";
      imports: [RouterModule.forRoot(routes)],
      exports: [RouterModule]
    })
-   export class AttractionsRoutingModule { }
+   export class UsersRoutingModule { }

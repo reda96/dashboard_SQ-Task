@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PetSalesStatisticsRoutingModule } from './attractions-routing.module';
+import { PetSalesStatisticsRoutingModule } from './pet-sales-routing.module';
 
 
 
