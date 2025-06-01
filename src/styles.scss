@@ -17,3 +17,54 @@ html {
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+.search-input {
+ width: 100%;
+ .mat-mdc-form-field-subscript-wrapper {
+    display: none !important; 
+}
+}
+
+
+
+
+.user-item  {  
+
+    display: flex;
+    justify-content: start;
+    padding: 10px;
+    margin: 20px;
+    box-shadow: 0 0 30px #1d897833;
+
+   border-radius: 15px;;
+}
+.profile { 
+
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+.label { 
+        color: #939caa;
+}
+.data {
+    width: 80%;
+     display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+.data>* {
+    flex-basis: 25%;
+}
+
+.actions { 
+    display: flex;
+    justify-content: center;
+    width: 20%;
+
+    div {
+        margin: 20px;
+    }
+}

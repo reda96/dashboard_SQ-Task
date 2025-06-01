@@ -1,1 +1,33 @@
-<p>user-list-item works!</p>
+
+<div class="user-item">
+  <div class="data">
+     <div class="user-name">
+      <!-- <div class="label">ID</div> -->
+      {{ user?.id }} 
+    </div>
+    <div>
+        <img class="profile" [src]="user?.avatar" />
+    </div>
+    
+
+    <div class="user-name">
+      <!-- <div class="label">First Name</div> -->
+      {{ user?.fname }} 
+    </div>
+        <div class="user-name">
+      <!-- <div class="label">Last Name</div> -->
+       {{ user?.lname }}
+    </div>
+    <div class="user-name">
+      <!-- <div class="label">User Name</div> -->
+      {{ user?.username }}
+    </div>
+  </div>
+
+  <div class="actions">
+    <div>  <fa-icon [icon]="editIcon"></fa-icon>
+   </div>
+    <div>  <fa-icon  [icon]="deleteIcon"></fa-icon>
+   </div>
+  </div>
+</div>

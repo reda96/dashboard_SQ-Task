@@ -1,1 +1,68 @@
-<app-user-list-item></app-user-list-item>
+<div >
+  <div class="title_div">
+    <div class="page-title">Users</div>
+    <div class="search-input-container">
+          <mat-form-field class="search-input">
+    <mat-label>Search</mat-label>
+    <input [formControl]="searchControl"  matInput placeholder="Ex. Karn" value="">
+  </mat-form-field>
+    </div>
+    <div class="">
+      <a routerLink="create" class="button"> Create User </a
+      ><!---->
+    </div>
+  </div>
+
+
+  <div class="user-item">
+  <div class="data">
+     <div class="user-name">
+      <div class="label">ID</div>
+      <fa-icon  (click)="sortBy('ID', 'Des')" class="sortDesIcon" [ngClass]="currentSort == 'sortDesByID'? 'show':''"   [icon]="sortDesIcon"></fa-icon>
+      <fa-icon (click)="sortBy('ID', 'Asc')" class="sortAscIcon"  [ngClass]="currentSort == 'sortAscByID'? 'show':''" [icon]="sortAscIcon"></fa-icon>
+    </div>
+    <div>
+        <div class="label">avatar</div>
+        <!-- <img class="profile" [src]="user?.avatar" /> -->
+    </div>
+    
+
+    <div class="user-name">
+      <div class="label">First Name</div>
+           <fa-icon  (click)="sortBy('fname', 'Des')" class="sortDesIcon" [ngClass]="currentSort == 'sortDesByfname'? 'show':''"   [icon]="sortDesIcon"></fa-icon>
+      <fa-icon (click)="sortBy('fname', 'Asc')" class="sortAscIcon"  [ngClass]="currentSort == 'sortAscByfname'? 'show':''" [icon]="sortAscIcon"></fa-icon>
+   
+    </div>
+        <div class="user-name">
+      <div class="label">Last Name</div>
+             <fa-icon  (click)="sortBy('lname', 'Des')" class="sortDesIcon" [ngClass]="currentSort == 'sortDesBylname'? 'show':''"   [icon]="sortDesIcon"></fa-icon>
+      <fa-icon (click)="sortBy('lname', 'Asc')" class="sortAscIcon"  [ngClass]="currentSort == 'sortAscBylname'? 'show':''" [icon]="sortAscIcon"></fa-icon>
+   
+      
+    </div>
+    <div class="user-name">
+      <div class="label">User Name</div>
+             <fa-icon  (click)="sortBy('username', 'Des')" class="sortDesIcon" [ngClass]="currentSort == 'sortDesByusername'? 'show':''"   [icon]="sortDesIcon"></fa-icon>
+      <fa-icon (click)="sortBy('username', 'Asc')" class="sortAscIcon"  [ngClass]="currentSort == 'sortAscByusername'? 'show':''" [icon]="sortAscIcon"></fa-icon>
+   
+
+    </div>
+  </div>
+
+ 
+</div>
+
+  @for (user of usersObs | async; track user.id) {
+  <app-user-list-item [user]="user"></app-user-list-item>
+
+  }
+
+  <mat-paginator
+    [length]="userLength | async"
+    (page)="handlePageEvent($event)"
+    [pageSize]="10"
+    [pageSizeOptions]="[5,10, 25, 100]"
+    aria-label="Select page"
+  >
+  </mat-paginator>
+</div>
