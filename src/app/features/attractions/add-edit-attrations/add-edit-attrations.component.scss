@@ -1,0 +1,21 @@
+.avatar {
+        text-align: center;
+    margin-bottom: 20px;
+    img {
+        border-radius: 10px;
+        height: 200px;
+    }
+}
+.location {
+    display: flex;
+    justify-content: space-between;
+
+    div:nth-child(2n) {
+        width: 50%;
+        padding-inline-start: 10px;
+    }
+        div:nth-child(2n+1) {
+        width: 50%;
+        padding-inline-end: 10px;
+    }
+}

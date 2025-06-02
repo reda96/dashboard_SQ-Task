@@ -32,9 +32,11 @@ export class AddEditUserComponent implements OnInit , OnDestroy{
   ngOnInit(): void {
    this.routeSub= this.route.paramMap.subscribe((params) => {
       this.id = params.get('id');
-      this.editMode = true;
+      
       //  console.log('Route ID:', id);
-      if (this.id) this.usersService.getUserById(+this.id);
+      if (this.id){
+        this.editMode = true;
+        this.usersService.getUserById(+this.id);}
     });
 
   this.userByIdSub=  this.userById$.subscribe((user: User) => {

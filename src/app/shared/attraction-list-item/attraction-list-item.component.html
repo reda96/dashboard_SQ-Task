@@ -15,6 +15,6 @@
   </div>
   <mat-card-actions *ngIf="isAuthenticated$ | async" >
     <a [routerLink]="'update/'+attraction?.id" matButton>Edit</a>
-    <button matButton>Delete</button>
+    <button (click)="deleteAttraction(attraction?.id)" matButton>Delete</button>
   </mat-card-actions>
 </mat-card>

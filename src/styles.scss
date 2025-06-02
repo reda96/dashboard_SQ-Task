@@ -73,7 +73,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .form-container {
     width:50%;
     margin:auto;
-    margin-top: 50px;
+    margin-top: 20px;
     .mat-mdc-form-field {
         width: 100%;
     }
@@ -129,3 +129,17 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
         width: 100%;
     }
     }
+
+
+    .mat-mdc-progress-spinner {
+            position: fixed;
+    top: calc(50% - 98px);
+    left: calc(50% - 100px);
+}
+.header .mat-mdc-tab-header {
+    width: 80%;
+}
+.header .mat-mdc-tab-link-container {
+    border: none;
+}
+    

@@ -31,9 +31,12 @@ export class AddEditAttrationsComponent {
   ngOnInit(): void {
     this.routeSub = this.route.paramMap.subscribe((params) => {
       this.id = params.get('id');
-      this.editMode = true;
+
+     
       //  console.log('Route ID:', id);
-      if (this.id) this.attractionService.getAttractionById(+this.id);
+      if (this.id){
+         this.editMode = true; 
+        this.attractionService.getAttractionById(+this.id);}
     });
 
     this.attractionByIdSub = this.attractionById$.subscribe((attraction: Attraction) => {
@@ -54,8 +57,7 @@ export class AddEditAttrationsComponent {
       console.log(this.attractionForm.value);
       let attraction = this.attractionForm.value as Attraction;
       if (!this.editMode) this.attractionService.createAttraction(attraction);
-      else
-        this.attractionService.updateAttraction({ ...attraction, id: this.id });
+      else this.attractionService.updateAttraction({ ...attraction, id: this.id });
     } else {
       this.attractionForm.reset();
       this.attractionForm.markAllAsTouched();

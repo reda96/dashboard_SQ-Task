@@ -1,9 +1,22 @@
 .header {
     width: 100%;
     border-bottom: 0.8px solid rgb(224, 226, 236);
-
+    display: flex;
 
     .mat-mdc-tab-link-container{
         border-bottom-width: 0;
     }
+}
+.logout_sec {
+      display: flex
+;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%
+}
+.logout_btn {
+    border: none;
+    padding: 10px;
+    background-color: white;
+    color: rgb(85, 26, 139);
 }

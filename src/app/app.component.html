@@ -1,2 +1,9 @@
 <app-header></app-header>
-<router-outlet></router-outlet>
+<ng-container *ngIf="loadingObs | async;else showContent">
+    <div class="spinner">
+  <mat-spinner></mat-spinner>
+  </div>
+</ng-container>
+<ng-template #showContent>
+      <router-outlet></router-outlet>
+</ng-template>

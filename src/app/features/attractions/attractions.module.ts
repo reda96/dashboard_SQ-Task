@@ -11,6 +11,7 @@ import { ListAttractionsComponent } from './list-attractions/list-attractions.co
 import { AddEditAttrationsComponent } from './add-edit-attrations/add-edit-attrations.component';
 import { AttractionListItemComponent } from '../../shared/attraction-list-item/attraction-list-item.component';
 import {MatSelectModule} from '@angular/material/select';
+import { DecimalInputDirective } from '../../core/directives/decimal.directive';
 @NgModule({
   declarations: [ListAttractionsComponent, AddEditAttrationsComponent],
   imports: [
@@ -25,6 +26,7 @@ import {MatSelectModule} from '@angular/material/select';
     MatInputModule,
     FontAwesomeModule,
     MatButtonModule, 
+    DecimalInputDirective
      
   ],
   providers:[ {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'outline'}}]

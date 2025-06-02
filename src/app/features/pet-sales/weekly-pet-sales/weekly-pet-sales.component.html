@@ -1,1 +1,50 @@
-<p>weekly-pet-sales works!</p>
+<nav class="nav-bar" mat-tab-nav-bar [tabPanel]="tabPanel">
+  @for (item of links; track item.link) {
+  <a
+    mat-tab-link
+    (click)="activeLink = item.link"
+    [routerLink]="item.link"
+    [active]="activeLink == item.link"
+  >
+    {{ item.label }}
+  </a>
+  }
+</nav>
+<mat-tab-nav-panel #tabPanel></mat-tab-nav-panel>
+<div>
+  <div class="title_div">
+    <div>
+      <mat-form-field class="example-full-width">
+        <mat-label>Choose a date</mat-label>
+        <input
+          matInput
+          appearance="outlined"
+          (dateChange)="onDateChange($event)"
+          [matDatepicker]="picker"
+        />
+        <!-- <mat-hint>MM/DD/YYYY</mat-hint> -->
+        <mat-datepicker-toggle matIconSuffix [for]="picker">
+          <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+        </mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div
+    *ngIf="categories | async as cats"
+    style="display: block; width: 70%; margin: auto"
+  >
+    <ng-container *ngIf="lineChartData | async as data">
+      <canvas
+        baseChart
+        [datasets]="data"
+        [labels]="cats"
+        [options]="lineChartOptions"
+        [legend]="true"
+        [type]="'line'"
+      >
+      </canvas>
+    </ng-container>
+  </div>
+</div>

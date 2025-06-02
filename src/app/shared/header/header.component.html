@@ -8,4 +8,8 @@
   }
 </nav>
 <mat-tab-nav-panel #tabPanel></mat-tab-nav-panel>
+<div *ngIf="isAuthenticated" class="logout_sec">
+   <div>Hello <span *ngIf="currentUser | async as user" >{{user?.fname}}</span></div>
+   <button class="logout_btn" matButton>Logout</button>
+</div>
 </div>
