@@ -1,4 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UserManagementService } from '../../../core/services/user-management.service';
+import { User } from '../../../core/models/user.model';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-add-edit-user',
@@ -6,6 +10,54 @@ import { Component } from '@angular/core';
   styleUrl: './add-edit-user.component.scss',
    standalone: false
 })
-export class AddEditUserComponent {
+export class AddEditUserComponent implements OnInit{
+   editMode = false;
+   usersService = inject(UserManagementService);
+   id:any=0;
+   route = inject(ActivatedRoute);
+   userById$ = this.usersService.userById$;
+   imageUrl='';
+   userForm = new FormGroup({
+       fname: new FormControl('', [Validators.required]),
+       lname: new FormControl('', [Validators.required]),
+       avatar: new FormControl('', [Validators.required]),
+       username: new FormControl('', [Validators.required]),
+       email: new FormControl('', [Validators.required, Validators.email]),
+       password: new FormControl('', Validators.required)
+     });
+     
+ ngOnInit(): void {
+    // throw new Error('Method not implemented.');
+      this.route.paramMap.subscribe(params => {
+          this.id = params.get('id');
+         this.editMode=true;
+        //  console.log('Route ID:', id);
+        if(this.id)
+        this.usersService.getUserById(+this.id);
+       });
 
+       this.userById$.subscribe((user:User)=> {
+              this.userForm.patchValue({
+  ...user
+});
+       })
+  }
+     useImage(event:any){
+      console.log(event.target.value);
+      this.imageUrl = event.target.value;
+     }
+
+
+      onSubmit() {
+       if (this.userForm.valid) {
+         // Handle form submission
+         console.log(this.userForm.value);
+         let user = this.userForm.value as User;
+         if(!this.editMode)
+         this.usersService.createUser(user)
+         else this.usersService.updateUser({ ...user,id:this.id})
+       } else {
+        this.userForm.reset();
+        this.userForm.markAllAsTouched();}
+     }
 }

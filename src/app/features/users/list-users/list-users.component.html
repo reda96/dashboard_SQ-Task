@@ -53,7 +53,8 @@
 </div>
 
   @for (user of usersObs | async; track user.id) {
-  <app-user-list-item [user]="user"></app-user-list-item>
+  <app-user-list-item [searchWord]="searchInput"  [pageSize] = "pageSize"
+  [pageIndex]="pageIndex" [currentSort]="currentSort" [user]="user"></app-user-list-item>
 
   }
 

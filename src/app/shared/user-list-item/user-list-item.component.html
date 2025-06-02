@@ -25,9 +25,13 @@
   </div>
 
   <div class="actions">
-    <div>  <fa-icon [icon]="editIcon"></fa-icon>
+    
+    <div>  
+       <a [routerLink]="'update/'+user?.id" >  <fa-icon  [icon]="editIcon"></fa-icon>
+    </a>
    </div>
-    <div>  <fa-icon  [icon]="deleteIcon"></fa-icon>
-   </div>
+   <div>
+    <fa-icon (click)="deleteUser(user?.id)" [icon]="deleteIcon"></fa-icon>
+    </div>
   </div>
 </div>

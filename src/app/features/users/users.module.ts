@@ -9,6 +9,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS, MatFormFieldModule } from '@angular/material/form-field';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { MatButtonModule } from '@angular/material/button';
 @NgModule({
   declarations: [ListUsersComponent, AddEditUserComponent],
   imports: [
@@ -20,7 +21,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    
+    MatButtonModule
   ],
   providers:[ {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'outline'}}]
 })

@@ -3,5 +3,6 @@ export interface User {
   lname:string;
   username:string;
   avatar:string;
+  email:string;
   id:number;
 }
