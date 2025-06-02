@@ -96,3 +96,36 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     width:90%;
     }
 }
+
+.button {
+    border: 1px solid rgb(85, 26, 139);
+    padding: 10px;
+    background-color: white;
+    color: rgb(85, 26, 139);
+    text-decoration: none;
+    border-radius: 10px;
+}
+
+.button:hover {
+    border: 1px solid rgb(85, 26, 139);
+    padding: 10px;
+    background-color: rgb(85, 26, 139);
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+}
+
+.title_div {
+    margin: 20px;
+    display: flex;
+    padding: 10px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+  .sortBy { 
+        width:400px;
+        .mat-mdc-form-field {
+        width: 100%;
+    }
+    }

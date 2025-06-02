@@ -1,1 +1,42 @@
-<p>list-attractions works!</p>
+<div>
+  <div class="title_div">
+    <div class="page-title">Attractions</div>
+
+    <div class="sort"  >
+    <div class="sortBy">
+      <mat-form-field>
+        <mat-label>SortBy</mat-label>
+        <mat-select  (selectionChange)="sortBy($event)">
+          @for (sortOption of sortOptions; track sortOption) {
+          <mat-option  [value]="sortOption">{{ sortOption }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+    </div>
+          <fa-icon (click)="sortBy($event)" class="sortAscIcon"  [ngClass]="currentSortCriteria!=''&& currentSortType == 'ASC'? 'show':''" [icon]="sortAscIcon"></fa-icon>
+                  <fa-icon (click)="sortBy($event)" class="sortDESIcon"  [ngClass]="currentSortCriteria!='' && currentSortType == 'DES'? 'show':''" [icon]="sortDesIcon"></fa-icon>
+</div>
+    <div class="">
+      <a routerLink="create" class="button"> Create Attraction </a
+      ><!---->
+    </div>
+  </div>
+
+  <div class="attractions_container">
+    @for (attraction of attractionsObs | async; track attraction.id) {
+    <div>
+      <app-attraction-list-item
+        [attraction]="attraction"
+      ></app-attraction-list-item>
+    </div>
+    }
+  </div>
+  <mat-paginator
+    [length]="attractionsLength | async"
+    (page)="handlePageEvent($event)"
+    [pageSize]="12"
+    [pageSizeOptions]="[6, 12, 24]"
+    aria-label="Select page"
+  >
+  </mat-paginator>
+</div>

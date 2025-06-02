@@ -1,1 +1,115 @@
-<p>add-edit-attrations works!</p>
+<div class="form-container">
+  <form [formGroup]="attractionForm" (ngSubmit)="onSubmit()">
+    <div  class="avatar">
+        <img *ngIf="imageUrl" [src]="imageUrl" id="imageViewer">
+    </div>
+     <div>
+      <mat-form-field appearance="outline">
+        <mat-label>Cover Image</mat-label>
+        <input
+          matInput
+          type="text"
+          id="coverimage"
+          formControlName="coverimage"
+          (change)="useImage($event)"
+        />
+       </mat-form-field>
+      <div
+        class="error"
+        *ngIf="
+          attractionForm
+.get('coverimage')?.hasError('required') &&
+          attractionForm.get('coverimage')?.touched
+        "
+      >
+        Image Url is required.
+      </div>
+    </div>
+    
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-label > Name</mat-label>
+        <input
+          matInput
+          type="text"
+          id="name"
+          formControlName="name"
+        />
+      </mat-form-field>
+      <div
+        class="error"
+        *ngIf="
+          attractionForm.get('name')?.hasError('required') &&
+          attractionForm.get('name')?.touched
+        "
+      >
+         Name is required.
+      </div>
+    </div>
+     <div>
+      <mat-form-field appearance="outline">
+        <mat-label >Detail</mat-label>
+
+         <textarea matInput   type="textarea"
+          id="detail"
+          formControlName="detail" ></textarea>
+      </mat-form-field>
+      <div
+        class="error"
+        *ngIf="
+          attractionForm.get('detail')?.hasError('required') &&
+          attractionForm.get('detail')?.touched
+        "
+      >
+         Detail is required.
+      </div>
+    </div>
+
+    <div>
+      <div>
+      <mat-form-field appearance="outline">
+        <mat-label > Latitude</mat-label>
+        <input
+          matInput
+          type="number"
+          id="latitude"
+          formControlName="latitude"
+        />
+      </mat-form-field>
+      <div
+        class="error"
+        *ngIf="
+          attractionForm.get('latitude')?.hasError('required') &&
+          attractionForm.get('latitude')?.touched
+        "
+      >
+         Latitude is required.
+      </div>
+    </div>
+     <div>
+      <mat-form-field appearance="outline">
+        <mat-label > Latitude</mat-label>
+        <input
+          matInput
+          type="number"
+          id="longitude"
+          formControlName="longitude"
+        />
+      </mat-form-field>
+      <div
+        class="error"
+        *ngIf="
+          attractionForm.get('longitude')?.hasError('required') &&
+          attractionForm.get('longitude')?.touched
+        "
+      >
+         Longitude is required.
+      </div>
+    </div>
+</div>
+  
+    <div>
+      <button matButton="filled" type="submit">Submit</button>
+    </div>
+  </form>
+</div>

@@ -1,1 +1,20 @@
-<p>attraction-list-item works!</p>
+<mat-card class="example-card" appearance="outlined">
+  <mat-card-header>
+  
+    <mat-card-title>{{ attraction?.name}}</mat-card-title>
+  </mat-card-header>
+  <img mat-card-image [src]="attraction?.coverimage" alt="Photo of a Shiba Inu">
+  <mat-card-content>
+    <p>
+      {{attraction?.detail}}
+    </p>
+  </mat-card-content>
+  <div class="location" >
+     <div>Longitude: {{attraction?.longitude}}</div>
+     <div>Latitude: {{attraction?.latitude}}</div>
+  </div>
+  <mat-card-actions *ngIf="isAuthenticated$ | async" >
+    <a [routerLink]="'update/'+attraction?.id" matButton>Edit</a>
+    <button matButton>Delete</button>
+  </mat-card-actions>
+</mat-card>

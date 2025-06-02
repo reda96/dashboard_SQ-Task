@@ -1,0 +1,21 @@
+.example-card {
+  max-width: 400px;
+  height: 100%;
+  margin: auto;
+
+  .mdc-card__media {
+
+    height: 250px;
+    width: auto;
+  }
+}
+
+.mat-mdc-card-title {
+    margin: 10px auto;
+}
+
+.location {
+    display:flex;
+    justify-content: space-between;
+    padding: 10px 16px;
+}
