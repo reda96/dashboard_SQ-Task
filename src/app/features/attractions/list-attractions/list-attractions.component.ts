@@ -40,17 +40,19 @@ export class ListAttractionsComponent implements OnInit {
     let sortAsc = 'Asc';
     let sortDes = 'Des';
     let sortCriteria = event.value;
-    if(sortCriteria)
-    this.currentSortCriteria = sortCriteria;
+ 
     
     // let currentSort = 'sort' + sortType + 'By' + sortCriteria;
-
+   console.log(this.currentSortCriteria , sortCriteria );
+   
     if (this.currentSortCriteria == sortCriteria || !sortCriteria)
       if (this.currentSortType == 'DES') 
         this.currentSortType = 'ASC';
       else this.currentSortType = 'DES';
     else this.currentSortType = 'DES';
-
+   if(sortCriteria)
+    this.currentSortCriteria = sortCriteria;
+  
     this.attractionsService.sortAttractionsBy(
       this.currentSortType.toLowerCase(),
       this.currentSortCriteria.toLowerCase(),

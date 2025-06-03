@@ -34,6 +34,7 @@ export class HeaderComponent implements OnInit,OnDestroy {
     { label: 'Pet Sales Statistics', link: '/pet-sales' },];
   
       } else {
+         this.isAuthenticated =false;
         this.links=[ { label: 'Login', link: '/login' },
     { label: 'Attractions', link: '/attractions' },]
 
@@ -44,6 +45,9 @@ export class HeaderComponent implements OnInit,OnDestroy {
      // console.log(event);
     })
     });
+  }
+  logout(){
+    this.authService.logout();
   }
   ngOnDestroy(): void {
    this.authSub?.unsubscribe();

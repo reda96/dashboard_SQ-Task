@@ -5,11 +5,12 @@ import { routes } from './app.routes';
 import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptors } from '@angular/common/http';
 import { httpInterceptor } from './core/interceptors/http.interceptor';
 import { loadingInterceptor } from './core/interceptors/loading.interceptor';
+import { errorHandlerInterceptor } from './core/interceptors/error-handler.interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes),
 
-    provideHttpClient(withInterceptors([httpInterceptor])),
+    provideHttpClient(withInterceptors([httpInterceptor,errorHandlerInterceptor,loadingInterceptor,])),
     
   ]
 };

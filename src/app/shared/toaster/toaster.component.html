@@ -1,0 +1,13 @@
+<div
+  class="toaster " [ngClass]="message?'show':''"
+>
+ <div class="toaster_container" >
+    <div>
+    <fa-icon [icon]="faClose" ></fa-icon>
+    Error
+    </div>
+    <div class="error-message">
+       {{message}}
+    </div>
+ </div>
+</div>

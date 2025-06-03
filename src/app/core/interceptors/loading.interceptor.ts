@@ -6,7 +6,7 @@ import {
   HttpRequest,
 } from '@angular/common/http';
 import { inject } from '@angular/core';
-import { finalize, Observable } from 'rxjs';
+import { finalize, Observable, tap } from 'rxjs';
 import { LoadingSpinnerService } from '../services/loading-spinner.service';
 
   export const loadingInterceptor: HttpInterceptorFn = (
@@ -15,7 +15,10 @@ import { LoadingSpinnerService } from '../services/loading-spinner.service';
   ): Observable<HttpEvent<any>> => {
       let  loadingService = inject(LoadingSpinnerService);
       loadingService.show();
+      console.log(req);
+      
         return next(req).pipe(
+          tap((res:any)=>{console.log(res);}),
           finalize(() => {
           
             
