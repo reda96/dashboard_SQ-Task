@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable, OnDestroy } from '@angular/core';
+import { Injectable, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Route, Router } from '@angular/router';
 import { BehaviorSubject, Subject, Subscription, take, tap } from 'rxjs';
 import { User } from '../models/user.model';
@@ -21,7 +21,16 @@ export class AuthService {
     private readonly http: HttpClient,
     private router: Router,
     private route: ActivatedRoute
-  ) {}
+  ) {
+       if(sessionStorage.getItem('accessToken'))
+   { 
+    
+    this.isAuthenticated.next(true);
+
+
+   }
+  }
+
 
   login(username: string, password: string) {
     return this.http
@@ -39,5 +48,10 @@ export class AuthService {
           });
         })
       );
+  }
+  logout(){
+    this.isAuthenticated.next(false);
+    sessionStorage.removeItem('accessToken');
+    this.router.navigate(['/login'])
   }
 }

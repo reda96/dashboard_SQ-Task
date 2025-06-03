@@ -7,27 +7,27 @@ import { BehaviorSubject } from 'rxjs';
     export class LoadingSpinnerService {
        counter = 0;
         private loadingSubject = new BehaviorSubject<boolean>(false);
-        public get  loading$ (){
+        public get  loading$(){
        return  this.loadingSubject.asObservable();
         }
         show() {
          
-           
-              if(this.counter==0)
+           console.log('show: ');
+              // if(this.counter==0)
               this.loadingSubject.next(true);
-              this.counter++;
-               console.log(this.counter);
+              // this.counter++;
+               
          
             
         }
 
         hide() {
           
-           this.counter--;
-          if(this.counter==0)
+          //  this.counter--;
+          // if(this.counter==0)
          this.loadingSubject.next(false);
         
-        console.log(this.counter);
+        console.log('hide: ');
         
         }
     }
