@@ -1,8 +1,9 @@
 # DashboardApplication
 
 steps to run the project:
-1- run npm install in the root folder
-2- run npm start to start the application locally
+1- clone the repo
+2- run npm install in the root folder
+3- run npm start to start the application locally
 
 
 Applicatio Guide:
